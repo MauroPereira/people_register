@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro de personas</title>
+  </head>
+  <body>
+    <h1>Registro de personas</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Registrar persona</button>
+    </form>
+    <h2>Personas registradas</h2>
+    <ul>
+      {% for persona in personas %}
+      <li>{{ persona.nombre }} - {{ persona.correo }} - {{ persona.edad }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
